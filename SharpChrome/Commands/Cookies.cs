@@ -22,7 +22,7 @@ namespace SharpChrome.Commands
             string cookieRegex = "";        // regex to search for specific cookie names
             string urlRegex = "";           // regex to search for specific URLs for cookies
             string stateKey = "";           // decrypted AES statekey to use for cookie decryption
-            string browser = "chrome";      // alternate Chromiun browser to specify, currently only "edge" is supported
+            string browser = "chrome";      // alternate Chromium browser to specify, currently only "edge" is supported
 
 
             if (arguments.ContainsKey("/quiet"))
