@@ -132,9 +132,14 @@ namespace SharpChrome
                     loginDataPath = String.Format("{0}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Default\\Login Data", userDirectory);
                     aesStateKeyPath = String.Format("{0}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Local State", userDirectory);
                 }
+                else if (browser.ToLower() == "360se")
+                {
+                    loginDataPath = String.Format("{0}\\AppData\\Roaming\\360se6\\User Data\\Default\\Login Data", userDirectory);
+                    aesStateKeyPath = String.Format("{0}\\AppData\\Roaming\\360se6\\User Data\\Local State", userDirectory);
+                }
                 else
                 {
-                    Console.WriteLine("[X] ERROR: only 'chrome', 'chromium', 'edge', and 'brave' are currently supported for browsers.");
+                    Console.WriteLine("[X] ERROR: only 'chrome', 'chromium', 'edge', 'brave' and '360se' are currently supported for browsers.");
                     return;
                 }
 
@@ -280,6 +285,15 @@ namespace SharpChrome
                     }
                     aesStateKeyPath = String.Format("{0}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Local State", userDirectory);
                 }
+                else if (browser.ToLower() == "360se")
+                {
+                    cookiePath = String.Format("{0}\\AppData\\Roaming\\360se6\\User Data\\Default\\Cookies", userDirectory);
+                    if (!File.Exists(cookiePath))
+                    {
+                        cookiePath = String.Format("{0}\\AppData\\Roaming\\360se6\\User Data\\Default\\Network\\Cookies", userDirectory);
+                    }
+                    aesStateKeyPath = String.Format("{0}\\AppData\\Roaming\\360se6\\User Data\\Local State", userDirectory);
+                }
                 else if (browser.ToLower() == "slack")
                 {
                     cookiePath = String.Format("{0}\\AppData\\Roaming\\Slack\\Network\\Cookies", userDirectory);
@@ -287,7 +301,7 @@ namespace SharpChrome
                 }
                 else
                 {
-                    Console.WriteLine("[X] ERROR: only 'chrome', 'chromium', 'edge', and 'brave' are currently supported for browsers.");
+                    Console.WriteLine("[X] ERROR: only 'chrome', 'chromium', 'edge', 'brave' and '360se' are currently supported for browsers.");
                     return;
                 }
 
@@ -387,6 +401,7 @@ namespace SharpChrome
                 aesKeyPaths.Add($"{userDirectory}\\AppData\\Local\\Chromium\\User Data\\Local State");
                 aesKeyPaths.Add($"{userDirectory}\\AppData\\Local\\Microsoft\\Edge\\User Data\\Local State");
                 aesKeyPaths.Add($"{userDirectory}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Local State");
+                aesKeyPaths.Add($"{userDirectory}\\AppData\\Roaming\\360se6\\User Data\\Local State");
                 aesKeyPaths.Add($"{userDirectory}\\AppData\\Roaming\\Slack\\Local State");
                 aesKeyPaths.Add($"{userDirectory}\\AppData\\Roaming\\Microsoft\\Teams\\Local State");
             }

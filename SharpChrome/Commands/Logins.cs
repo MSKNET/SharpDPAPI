@@ -18,7 +18,7 @@ namespace SharpChrome.Commands
             bool unprotect = false;         // whether to force CryptUnprotectData()
             bool quiet = false;             // don't display headers/logos/etc. (for csv/json output)
             string stateKey = "";           // decrypted AES statekey to use for cookie decryption
-            string browser = "chrome";      // alternate Chromium browser to specify, currently supported: "chrome", "chromium", "edge", "brave"
+            string browser = "chrome";      // alternate Chromium browser to specify, currently supported: "chrome", "chromium", "edge", "brave", "360se"
             string target = "";             // target file/user folder to triage
 
 
